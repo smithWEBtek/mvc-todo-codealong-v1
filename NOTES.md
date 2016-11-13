@@ -1,3 +1,17 @@
+Snippet Trigger
+
+
+
+goals:
+  code along with videos
+    stop and research form syntax
+    stop video and try to code ahead before seeing solution
+    keep moving through all videos in 1 day
+    go through them all again in a 2nd session
+    build your own parallel solution, with different models
+
+
+
 # Step 1: Integrate Basic Theme to Asset Pipeline
 
 [X] / - And see a stubbed out, non-dynamic, page with the theme.

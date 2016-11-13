@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  resources :lists
 
+  resources :lists do
+    resources :items
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+
+  # root 'lists#index'
+
   root 'lists#index'
 
   # Example of regular route:
