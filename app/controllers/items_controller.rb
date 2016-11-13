@@ -4,12 +4,10 @@ class ItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
       if @item.save
-      @list = @item.list
-    redirect_to list_path(@list)
-  else
-    redirect_to lists_path
-  end
-
+        redirect_to list_path(@list)
+      else
+        render 'lists/show'
+    end
   end
 
   private
