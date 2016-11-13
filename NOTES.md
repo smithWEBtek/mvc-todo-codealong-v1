@@ -36,3 +36,11 @@ Does it impact my URLS? '/lists/1' #
 # Step 3: Add Items to a List
 
 # Step Whatever: Fix Down Arrow on Make a List Form
+
+
+<input class="toggle" type="checkbox">
+
+$(function(){
+  $("input.toggle").on("change", function(){
+    $(this).parents("form").trigger("submit")
+  })

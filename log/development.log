@@ -10164,3 +10164,105 @@ Processing by ListsController#show as HTML
   [1m[35mItem Load (0.1ms)[0m  SELECT "items".* FROM "items" WHERE "items"."list_id" = ?  [["list_id", 6]]
   Rendered lists/show.html.erb within layouts/application (1.3ms)
 Completed 200 OK in 23ms (Views: 14.7ms | ActiveRecord: 0.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddStatusToItems (20161113235243)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.8ms)[0m  [1mALTER TABLE "items" ADD "status" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20161113235243"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "items" ("status", "description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["status", 1], ["description", "Buy New Underwear"], ["list_id", 3], ["created_at", "2016-11-13 23:54:23.889407"], ["updated_at", "2016-11-13 23:54:23.889407"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2016-11-13 18:54:40 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ListsController#index as HTML
+  [1m[35mList Load (0.2ms)[0m  SELECT "lists".* FROM "lists"
+  Rendered lists/index.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 237ms (Views: 221.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/lists/1" for 127.0.0.1 at 2016-11-13 18:54:44 -0500
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.2ms)[0m  [1mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items".* FROM "items" WHERE "items"."list_id" = ?  [["list_id", 1]]
+  Rendered lists/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 48ms (Views: 22.7ms | ActiveRecord: 0.5ms)
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items"  ORDER BY "items"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mUPDATE "items" SET "status" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["status", 1], ["updated_at", "2016-11-13 23:55:57.797591"], ["id", 1]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mList Load (0.1ms)[0m  [1mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to AddStatusToItems (20161113235243)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TEMPORARY TABLE "aitems" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "list_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "status" integer) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "items"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (1, 'Bread', 1, '2016-11-13 23:26:00.533465', '2016-11-13 23:55:57.797591', 1)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (2, 'Eggs', 1, '2016-11-13 23:26:00.536642', '2016-11-13 23:26:00.536642', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (3, 'Milk', 1, '2016-11-13 23:26:00.540195', '2016-11-13 23:26:00.540195', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (4, 'Batteries', 1, '2016-11-13 23:26:00.542364', '2016-11-13 23:26:00.542364', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (5, 'Swimming', 2, '2016-11-13 23:26:00.544180', '2016-11-13 23:26:00.544180', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (6, 'Biking', 2, '2016-11-13 23:26:00.545967', '2016-11-13 23:26:00.545967', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (7, 'Bird Watching', 2, '2016-11-13 23:26:00.547843', '2016-11-13 23:26:00.547843', NULL)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (8, 'Clean bathroom', 3, '2016-11-13 23:26:00.549515', '2016-11-13 23:26:00.549515', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (9, 'Do Taxes', 3, '2016-11-13 23:26:00.551101', '2016-11-13 23:26:00.551101', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (10, 'Pay Bills', 3, '2016-11-13 23:26:00.552808', '2016-11-13 23:26:00.552808', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (11, 'Fix screen door', 3, '2016-11-13 23:26:00.555468', '2016-11-13 23:26:00.555468', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (12, 'Learn Programming', 4, '2016-11-13 23:26:00.557481', '2016-11-13 23:26:00.557481', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (13, 'Tour World with band', 4, '2016-11-13 23:26:00.559437', '2016-11-13 23:26:00.559437', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (14, 'Live Healthy past age 100', 4, '2016-11-13 23:26:00.561095', '2016-11-13 23:26:00.561095', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (15, 'Learn Spanish', 4, '2016-11-13 23:26:00.562569', '2016-11-13 23:26:00.562569', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (16, 'Great Gatsby', 5, '2016-11-13 23:26:00.564284', '2016-11-13 23:26:00.564284', NULL)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (17, 'Think And Grow Rich', 5, '2016-11-13 23:26:00.566232', '2016-11-13 23:26:00.566232', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (18, 'Guru Book from Eleanor', 5, '2016-11-13 23:26:00.568209', '2016-11-13 23:26:00.568209', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (19, 'Forks Over Knives', 5, '2016-11-13 23:26:00.570130', '2016-11-13 23:26:00.570130', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (20, 'Pizza Making', 2, '2016-11-13 23:26:21.208767', '2016-11-13 23:26:21.208767', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (21, 'Basketball', 6, '2016-11-13 23:26:35.471388', '2016-11-13 23:26:35.471388', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (22, 'Football', 6, '2016-11-13 23:26:39.759543', '2016-11-13 23:26:39.759543', NULL)[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (23, 'Toe Cheese', 6, '2016-11-13 23:26:45.150443', '2016-11-13 23:26:45.150443', NULL)
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "aitems" ("id","description","list_id","created_at","updated_at","status") VALUES (24, 'Buy New Underwear', 3, '2016-11-13 23:54:23.889407', '2016-11-13 23:54:23.889407', 1)[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "items"
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "list_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "aitems"
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (1, 'Bread', 1, '2016-11-13 23:26:00.533465', '2016-11-13 23:55:57.797591')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (2, 'Eggs', 1, '2016-11-13 23:26:00.536642', '2016-11-13 23:26:00.536642')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (3, 'Milk', 1, '2016-11-13 23:26:00.540195', '2016-11-13 23:26:00.540195')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (4, 'Batteries', 1, '2016-11-13 23:26:00.542364', '2016-11-13 23:26:00.542364')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (5, 'Swimming', 2, '2016-11-13 23:26:00.544180', '2016-11-13 23:26:00.544180')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (6, 'Biking', 2, '2016-11-13 23:26:00.545967', '2016-11-13 23:26:00.545967')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (7, 'Bird Watching', 2, '2016-11-13 23:26:00.547843', '2016-11-13 23:26:00.547843')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (8, 'Clean bathroom', 3, '2016-11-13 23:26:00.549515', '2016-11-13 23:26:00.549515')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (9, 'Do Taxes', 3, '2016-11-13 23:26:00.551101', '2016-11-13 23:26:00.551101')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (10, 'Pay Bills', 3, '2016-11-13 23:26:00.552808', '2016-11-13 23:26:00.552808')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (11, 'Fix screen door', 3, '2016-11-13 23:26:00.555468', '2016-11-13 23:26:00.555468')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (12, 'Learn Programming', 4, '2016-11-13 23:26:00.557481', '2016-11-13 23:26:00.557481')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (13, 'Tour World with band', 4, '2016-11-13 23:26:00.559437', '2016-11-13 23:26:00.559437')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (14, 'Live Healthy past age 100', 4, '2016-11-13 23:26:00.561095', '2016-11-13 23:26:00.561095')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (15, 'Learn Spanish', 4, '2016-11-13 23:26:00.562569', '2016-11-13 23:26:00.562569')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (16, 'Great Gatsby', 5, '2016-11-13 23:26:00.564284', '2016-11-13 23:26:00.564284')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (17, 'Think And Grow Rich', 5, '2016-11-13 23:26:00.566232', '2016-11-13 23:26:00.566232')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (18, 'Guru Book from Eleanor', 5, '2016-11-13 23:26:00.568209', '2016-11-13 23:26:00.568209')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (19, 'Forks Over Knives', 5, '2016-11-13 23:26:00.570130', '2016-11-13 23:26:00.570130')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (20, 'Pizza Making', 2, '2016-11-13 23:26:21.208767', '2016-11-13 23:26:21.208767')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (21, 'Basketball', 6, '2016-11-13 23:26:35.471388', '2016-11-13 23:26:35.471388')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (22, 'Football', 6, '2016-11-13 23:26:39.759543', '2016-11-13 23:26:39.759543')
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (23, 'Toe Cheese', 6, '2016-11-13 23:26:45.150443', '2016-11-13 23:26:45.150443')[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "items" ("id","description","list_id","created_at","updated_at") VALUES (24, 'Buy New Underwear', 3, '2016-11-13 23:54:23.889407', '2016-11-13 23:54:23.889407')
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "aitems"[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20161113235243"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddStatusToItems (20161113235243)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "items" ADD "status" integer DEFAULT 0[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20161113235243"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mList Load (0.2ms)[0m  [1mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mItem Load (0.1ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."list_id" = ?  ORDER BY "items"."id" ASC LIMIT 1  [["list_id", 2]]
