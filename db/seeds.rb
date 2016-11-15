@@ -17,28 +17,28 @@ list = List.create([
   ])
 
 item = Item.create([
-  { description: 'Bread', list_id: 1},
-  { description: 'Eggs', list_id: 1},
-  { description: 'Milk', list_id: 1},
-  { description: 'Batteries', list_id: 1},
+  { description: 'Bread', status: 1, list_id: 1},
+  { description: 'Eggs', status: 1, list_id: 1},
+  { description: 'Milk', status: 0, list_id: 1},
+  { description: 'Batteries', status: 0, list_id: 1},
 
-  { description: 'Swimming', list_id: 2},
-  { description: 'Biking', list_id: 2},
-  { description: 'Bird Watching', list_id: 2},
+  { description: 'Swimming', status: 1, list_id: 2},
+  { description: 'Biking', status: 1, list_id: 2},
+  { description: 'Bird Watching', status: 0, list_id: 2},
 
-  { description: 'Clean bathroom', list_id: 3},
-  { description: 'Do Taxes', list_id: 3},
-  { description: 'Pay Bills', list_id: 3},
-  { description: 'Fix screen door', list_id: 3},
+  { description: 'Clean bathroom', status: 0, list_id: 3},
+  { description: 'Do Taxes', status: 0, list_id: 3},
+  { description: 'Pay Bills', status: 1,  list_id: 3},
+  { description: 'Fix screen door', status: 0, list_id: 3},
 
-  { description: 'Learn Programming', list_id: 4},
-  { description: 'Tour World with band', list_id: 4},
-  { description: 'Live Healthy past age 100', list_id: 4},
-  { description: 'Learn Spanish', list_id: 4},
+  { description: 'Learn Programming', status: 1,  list_id: 4},
+  { description: 'Tour World with band', status: 0, list_id: 4},
+  { description: 'Live Healthy past age 100', status: 0, list_id: 4},
+  { description: 'Learn Spanish', status: 0, list_id: 4},
 
-  { description: 'Great Gatsby', list_id: 5},
-  { description: 'Think And Grow Rich', list_id: 5},
-  { description: 'Guru Book from Eleanor', list_id: 5},
-  { description: 'Forks Over Knives', list_id: 5}
+  { description: 'Great Gatsby', status: 0, list_id: 5},
+  { description: 'Think And Grow Rich', status: 1, list_id: 5},
+  { description: 'Guru Book from Eleanor', status: 0, list_id: 5},
+  { description: 'Forks Over Knives', status: 0, list_id: 5}
 
   ])

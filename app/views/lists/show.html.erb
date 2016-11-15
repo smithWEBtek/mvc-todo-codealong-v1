@@ -13,11 +13,16 @@
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
       <% @list.items.each do |item| %>
-        <li>
+        <li class="<%= "completed" if item.complete?  %>">
+
           <div class="view">
-            <label><%= item.description %></label>
-            <input class="toggle" type="checkbox">
-          </div>
+            <form action ='/'>
+              <%= form_for([@list, item]) do |f| %>
+                <input class="toggle" type="checkbox" <%= "checked='checked'" if item.complete? %>>
+              <% end %>
+            </form>
+             <label><%= item.description %></label>
+           </div>
         </li>
       <% end %>
     </ul>
