@@ -1,5 +1,7 @@
-Snippet Trigger
+note change in lecture 4 branch
 
+note updated after entering
+    'git pull origin lecture4'
 
 
 goals:
