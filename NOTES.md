@@ -1,5 +1,4 @@
-Snippet Trigger
-
+note change in lecture 4 branch
 
 
 goals:
