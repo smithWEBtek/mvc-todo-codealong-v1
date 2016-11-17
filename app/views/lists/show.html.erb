@@ -12,17 +12,14 @@
     <input class="toggle-all" type="checkbox">
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
+      <%# @list.items.each do |item| %>
+      <%#= render :partial => "items/item_li", locals: {item: item} %>
+      <!--  refactor: line 16 is equivalent to line 18 -->
+      <%#= render "items/item_li", item: item %>
+      <!-- line 20 equivalent to lines 15, 16, 22 -->
+      <%= render collection: @list.items, partial: "items/item_li", as: :item %>
 
-      <% @list.items.each do |item| %>
-        <li class="<%= "completed" if item.complete?  %>">
-          <div class="view" >
-              <%= form_for([@list, item]) do |f| %>
-                <%= f.check_box :status, :class=>"toggle", :checked=> (true if item.complete?) %>
-              <% end %>
-              <label><%= item.description %></label>
-           </div>
-        </li>
-      <% end %>
+      <%# end %>
     </ul>
   </section>
   <footer class="footer">
