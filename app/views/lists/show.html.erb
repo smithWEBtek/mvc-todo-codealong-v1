@@ -1,25 +1,21 @@
 <section class="todoapp">
   <header class="header">
     <h1><%= @list.name %></h1>
-
     <%= form_for([@list, @item]) do |f| %>
       <%= f.text_field :description, :class => "new-todo", :placeholder => (@item.errors.full_messages_for(:description))[0] || "Enter a new item name"%>
       <%= f.submit style: "display: none"%>
     <% end %>
-
-    </header>
-    <section class="main">
+  </header>
+  <section class="main">
     <input class="toggle-all" type="checkbox">
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
       <%# @list.items.each do |item| %>
-      <%#= render :partial => "items/item_li", locals: {item: item} %>
-      <!--  refactor: line 16 is equivalent to line 18 -->
-      <%#= render "items/item_li", item: item %>
-      <!-- line 20 equivalent to lines 15, 16, 22 -->
-      <%= render collection: @list.items, partial: "items/item_li", as: :item %>
-
+        <%#= render :partial => "items/item_li", locals: {item: item} %>
+            <!-- short version: <%#= render "items/item_li", item: item %>   -->
       <%# end %>
+      <!-- replaces lines 13, 14, 16  -->
+      <%= render collection: @list.items, partial: "items/item_li", as: :item %>
     </ul>
   </section>
   <footer class="footer">
