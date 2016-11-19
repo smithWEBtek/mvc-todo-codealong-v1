@@ -1,28 +1,21 @@
 <section class="todoapp">
   <header class="header">
     <h1><%= @list.name %></h1>
-
     <%= form_for([@list, @item]) do |f| %>
       <%= f.text_field :description, :class => "new-todo", :placeholder => (@item.errors.full_messages_for(:description))[0] || "Enter a new item name"%>
       <%= f.submit style: "display: none"%>
     <% end %>
-
-    </header>
-    <section class="main">
+  </header>
+  <section class="main">
     <input class="toggle-all" type="checkbox">
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
-
-      <% @list.items.each do |item| %>
-        <li class="<%= "completed" if item.complete?  %>">
-          <div class="view" >
-              <%= form_for([@list, item]) do |f| %>
-                <%= f.check_box :status, :class=>"toggle", :checked=> (true if item.complete?) %>
-              <% end %>
-              <label><%= item.description %></label>
-           </div>
-        </li>
-      <% end %>
+      <%# @list.items.each do |item| %>
+        <%#= render :partial => "items/item_li", locals: {item: item} %>
+            <!-- short version: <%#= render "items/item_li", item: item %>   -->
+      <%# end %>
+      <!-- replaces lines 13, 14, 16  -->
+      <%= render collection: @list.items, partial: "items/item_li", as: :item %>
     </ul>
   </section>
   <footer class="footer">
