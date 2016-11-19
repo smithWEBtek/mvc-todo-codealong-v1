@@ -10,11 +10,14 @@ module ItemsHelper
 
   def li_for_item(item)
     content_tag_for :li, item, class: li_class_for_item(item) do
-    # what goes here?
-    # return a string value
-    # string value
+      yield
     end
   end
 
+  def form_for_item_status(item)
+    form_for([item.list, item]) do |f|
+      f.check_box :status, :class=>"toggle", :checked=> (true if item.complete?)
+    end
+  end
 
 end
