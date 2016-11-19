@@ -1,6 +1,22 @@
 <%= li_for_item(item) do %>
   <div class="view" >
-    <%= form_for_item_status(item) %>  
+    <%= form_for_item_status(item) %>
+
     <label><%= item.description %></label>
+<!-- 1 -->
+    <!-- <form action="<%= list_item_path(item.list, item) %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE" />
+
+      <button type="submit" class="destroy"></button> -->
+
+<!-- 2 -->
+    <!-- <%= form_tag(list_item_path(item.list, item), method: :delete) do %>
+      <!-- <input type="hidden" name="_method" value="DELETE" /> -->
+      <!-- <button type="submit" class="destroy"></button> -->
+
+<!-- 3 -->
+    <%= button_to "X", list_item_path(item.list, item), method: :delete, class: :destroy %>
+      <% end %>
+    </form>
   </div>
 <% end %>
