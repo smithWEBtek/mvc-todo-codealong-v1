@@ -44,6 +44,25 @@ input[type="checkbox"] {
 	display: none;
 }
 
+/*************    added this for flash_message_error style */
+.flash_message_error {
+	font-style: italic;
+	font-weight: bold;
+	color: red
+}
+
+/*************    added this for flash_message_success style */
+.flash_message_success {
+	font-style: italic;
+	font-weight: bold;
+	color: green
+}
+
+/*************    added this for field_with_errors tyle */
+.field_with_errors input[type='text']{
+	border: 2px solid red;
+}
+
 .todoapp {
 	background: #fff;
 	margin: 130px 0 40px 0;

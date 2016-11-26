@@ -46,3 +46,15 @@ $(function(){
   $("input.toggle").on("change", function(){
     $(this).parents("form").trigger("submit")
   })
+
+
+Authentication in Rails
+
+impact on DB
+URLS needed
+
+get '/users/new', to: 'users#new'
+post '/users/new', to: 'users#create'
+
+get '/login', to: 'sessions#login'
+post '/login', to: 'sessions# ?'

@@ -6,8 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-
+user = User.create([
+{ email: 'ted@nbc.com', password: "asdf"},
+{ email: 'jane@abc.com', password: "asdf"},
+{ email: 'chelsea@msnbc.com', password: "asdf"},
+{ email: 'joe@espn.com', password: "asdf"},
+{ email: 'walter@nbc.com', password: "asdf"}
+  ])
 list = List.create([
 { name: 'Shopping'},
 { name: 'Hobbies'},

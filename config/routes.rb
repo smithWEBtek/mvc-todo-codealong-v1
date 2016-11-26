@@ -1,16 +1,30 @@
 Rails.application.routes.draw do
 
+  get 'signup', to: 'users#new'
+
+  get '/login', to: 'sessions#new'
+  post '/sessions', to: 'sessions#create'
+
+  get '/logout', to: 'sessions#destroy'
+
+  resources :users, only: [:index, :new, :create]
+
   resources :lists do
     resources :items
   end
+
+  # post '/users/new', to: 'users#create'
+
+  # get 'signup', to: 'users#new', as: :signup
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
 
-  # root 'lists#index'
-
   root 'lists#index'
+  # get '/', to: 'sessions#new'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
