@@ -14,11 +14,35 @@ user = User.create([
 { email: 'walter@nbc.com', password: "asdf"}
   ])
 list = List.create([
-{ name: 'Shopping'},
-{ name: 'Hobbies'},
-{ name: 'Tasks'},
-{ name: 'Dreams'},
-{ name: 'Reading List'}
+{ name: 'Shopping', user_id: 1},
+{ name: 'Hobbies', user_id: 1},
+{ name: 'Tasks', user_id: 1},
+{ name: 'Dreams', user_id: 1},
+{ name: 'Reading List', user_id: 1}, 
+
+{ name: 'Shopping', user_id: 2},
+{ name: 'Hobbies', user_id: 2},
+{ name: 'Tasks', user_id: 2},
+{ name: 'Dreams', user_id: 2},
+{ name: 'Reading List', user_id: 2},
+
+{ name: 'Shopping', user_id: 3},
+{ name: 'Hobbies', user_id: 3},
+{ name: 'Tasks', user_id: 3},
+{ name: 'Dreams', user_id: 3},
+{ name: 'Reading List', user_id: 3},
+
+{ name: 'Shopping', user_id: 4},
+{ name: 'Hobbies', user_id: 4},
+{ name: 'Tasks', user_id: 4},
+{ name: 'Dreams', user_id: 4},
+{ name: 'Reading List', user_id: 4},
+
+{ name: 'Shopping', user_id: 5},
+{ name: 'Hobbies', user_id: 5},
+{ name: 'Tasks', user_id: 5},
+{ name: 'Dreams', user_id: 5},
+{ name: 'Reading List', user_id: 5}
   ])
 
 item = Item.create([
