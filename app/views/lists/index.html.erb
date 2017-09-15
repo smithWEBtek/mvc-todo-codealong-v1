@@ -5,18 +5,28 @@
       <%= f.text_field :name, :class => "new-todo", :placeholder => (@list.errors.full_messages_for(:name))[0] || "Enter a new list name"%>
       <%= f.submit :style => "display: none" %>
     <% end %>
-  </header>
+	</header>
+	
+
     <section class="main">
-      <ul class="todo_list">
-          <% @lists.each do |list| %>
-          <li>
-            <div class="view">
-              <h2><%= link_to list.name, list_path(list) %></h2>
-            </div>
-          </li>
-          <% end %>
-      </ul>
-    </section>
+			<ul>
+				<% @users.all.each do |user| %>
+					<h3><%= user.email %>'s list:</h3>	
+					<ul class="todo_list">
+						<% user.lists.each do |list| %>
+							<li>
+								<div class="view">
+									<h2><%= link_to list.name, list_path(list) %></h2>
+								</div>
+							</li>
+						<% end %>
+					</ul>
+				<% end %>	
+			</ul>
+		</section>
+		
+
+
   <footer class="footer">
   </footer>
 </section>
