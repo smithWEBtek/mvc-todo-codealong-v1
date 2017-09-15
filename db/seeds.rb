@@ -27,41 +27,41 @@ list = List.create([
 
 item = Item.create([
 	# User1: shopping
-  { description: 'Bread', status: 1, list_id: 1},
-  { description: 'Almond Milk', status: 0, list_id: 1},
-	{ description: 'Brown Rice', status: 0, list_id: 1},
+  {due: Time.now, description: 'Bread', status: 1, list_id: 1},
+  {due: Time.now, description: 'Almond Milk', status: 0, list_id: 1},
+	{due: Time.now, description: 'Brown Rice', status: 0, list_id: 1},
 	# User1: hobbies
-  { description: 'Swimming', status: 0, list_id: 2},
-  { description: 'Biking', status: 1, list_id: 2},
-  { description: 'Bird Watching', status: 0, list_id: 2},
+  {due: Time.now, description: 'Swimming', status: 0, list_id: 2},
+  {due: Time.now, description: 'Biking', status: 1, list_id: 2},
+  {due: Time.now, description: 'Bird Watching', status: 0, list_id: 2},
 	# User1: tasks
-  { description: 'Clean bathroom', status: 1, list_id: 3},
-  { description: 'Do Taxes', status: 0, list_id: 3},
-  { description: 'Pay Bills', status: 0,  list_id: 3},
+  {due: Time.now, description: 'Clean bathroom', status: 1, list_id: 3},
+  {due: Time.now, description: 'Do Taxes', status: 0, list_id: 3},
+  {due: Time.now, description: 'Pay Bills', status: 0,  list_id: 3},
 	
 	# User2: shopping
-  { description: 'Batteries', status: 0, list_id: 4},
-  { description: 'Olives', status: 0, list_id: 4},
-	{ description: 'Lettuce', status: 0, list_id: 4},
+  {due: Time.now, description: 'Batteries', status: 0, list_id: 4},
+  {due: Time.now, description: 'Olives', status: 0, list_id: 4},
+	{due: Time.now, description: 'Lettuce', status: 0, list_id: 4},
 	# User2: hobbies
-  { description: 'Skiing', status: 0, list_id: 5},
-  { description: 'Stamp Collection', status: 0, list_id: 5},
-  { description: 'Fantasy Football', status: 0, list_id: 5},
+  {due: Time.now, description: 'Skiing', status: 0, list_id: 5},
+  {due: Time.now, description: 'Stamp Collection', status: 0, list_id: 5},
+  {due: Time.now, description: 'Fantasy Football', status: 0, list_id: 5},
 	# User2: tasks
-  { description: 'Fix screen door', status: 0, list_id: 6},
-  { description: 'Set mouse trap', status: 0, list_id: 6},
-  { description: 'Rake leaves', status: 0, list_id: 6},
+  {due: Time.now, description: 'Fix screen door', status: 0, list_id: 6},
+  {due: Time.now, description: 'Set mouse trap', status: 0, list_id: 6},
+  {due: Time.now, description: 'Rake leaves', status: 0, list_id: 6},
 
 	# User3: shopping
-  { description: 'Scotch Tape', status: 0, list_id: 7},
-  { description: 'Coffee', status: 0, list_id: 7},
-  { description: 'Eggs', status: 0, list_id: 7},
+  {due: Time.now, description: 'Scotch Tape', status: 0, list_id: 7},
+  {due: Time.now, description: 'Coffee', status: 0, list_id: 7},
+  {due: Time.now, description: 'Eggs', status: 0, list_id: 7},
 	# User3: hobbies
-	{ description: 'Hair Styling', status: 0, list_id: 8},
-	{ description: 'Bunji Jumping', status: 0, list_id: 8},
-	{ description: 'Comic Books', status: 0, list_id: 8},
+	{due: Time.now, description: 'Hair Styling', status: 0, list_id: 8},
+	{due: Time.now, description: 'Bunji Jumping', status: 0, list_id: 8},
+	{due: Time.now, description: 'Comic Books', status: 0, list_id: 8},
 	# User3: tasks
-	{ description: 'Replace soffets', status: 0, list_id: 9},
-	{ description: 'Mow Lawn', status: 0, list_id: 9},
-	{ description: 'Garbage Dump Run', status: 0, list_id: 9}
+	{due: Time.now, description: 'Replace soffets', status: 0, list_id: 9},
+	{due: Time.now, description: 'Mow Lawn', status: 0, list_id: 9},
+	{due: Time.now, description: 'Garbage Dump Run', status: 0, list_id: 9}
   ])
